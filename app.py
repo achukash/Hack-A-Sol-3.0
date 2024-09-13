@@ -18,22 +18,22 @@ def index():
 # Route to handle file upload
 @app.route('/upload', methods=['POST'])
 def upload_files():
-    if 'player1' not in request.files or 'player2' not in request.files:
+    if 'win' not in request.files or 'loss' not in request.files:
         return "Files not uploaded"
 
-    player1_file = request.files['player1']
-    player2_file = request.files['player2']
+    win_file = request.files['win']
+    loss_file = request.files['loss']
 
     # Save the files if they are PGN files
-    if player1_file and player1_file.filename.endswith('.pgn'):
-        player1_path = os.path.join(UPLOAD_FOLDER, player1_file.filename)
-        player1_file.save(player1_path)
+    if win_file and win_file.filename.endswith('.pgn'):
+        win_path = os.path.join(UPLOAD_FOLDER, win_file.filename)
+        win_file.save(win_path)
 
-    if player2_file and player2_file.filename.endswith('.pgn'):
-        player2_path = os.path.join(UPLOAD_FOLDER, player2_file.filename)
-        player2_file.save(player2_path)
+    if loss_file and loss_file.filename.endswith('.pgn'):
+        loss_path = os.path.join(UPLOAD_FOLDER, loss_file.filename)
+        loss_file.save(loss_path)
 
-    return f"Files uploaded successfully: {player1_file.filename}, {player2_file.filename}"
+    return f"Files uploaded successfully: {win_file.filename}, {loss_file.filename}"
 
 if __name__ == "__main__":
     app.run(debug=True)

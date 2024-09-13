@@ -12,18 +12,21 @@
     <div>
         <h1>Chess Game Analyzer</h1>
 
-        <form action="/upload" method="post" enctype="multipart/form-data">
-            <div class="drop-area" id="drop-area-player1">
-                <p>Drag & Drop Player 1's PGN file here, or click to select</p>
-                <input type="file" id="player1" name="player1" accept=".pgn" style="display: none;" required>
+        <form id="upload-form" action="/upload" method="post" enctype="multipart/form-data">
+            <div class="drop-area" id="drop-area-win">
+                <p>Drag & Drop win PGN file here, or click to select</p>
+                <input type="file" id="win" name="win" accept=".pgn" style="display: none;" required>
+                <span class="file-name" id="file-name-win"></span>
             </div>
 
-            <div class="drop-area" id="drop-area-player2">
-                <p>Drag & Drop Player 2's PGN file here, or click to select</p>
-                <input type="file" id="player2" name="player2" accept=".pgn" style="display: none;" required>
+            <div class="drop-area" id="drop-area-loss">
+                <p>Drag & Drop loss PGN file here, or click to select</p>
+                <input type="file" id="loss" name="loss" accept=".pgn" style="display: none;" required>
+                <span class="file-name" id="file-name-loss"></span>
             </div>
 
-            <input type="submit" value="Analyze">
+            <input type="submit" value="Analyze" id="analyze-button" disabled>
+            <div class="error-message" id="error-message"></div>
         </form>
     </div>
 
@@ -41,15 +44,22 @@
             e.target.classList.remove('highlight');
         }
 
-        function handleDrop(e, inputElement) {
+        function handleDrop(e, inputElement, fileNameElement) {
             const dt = e.dataTransfer;
             const files = dt.files;
             inputElement.files = files; // Assign dropped files to input element
+            displayFileName(files[0], fileNameElement); // Display file name
+            validateForm(); // Validate form on file drop
         }
 
-        function setupDropArea(dropAreaId, inputElementId) {
+        function displayFileName(file, fileNameElement) {
+            fileNameElement.textContent = `Uploaded: ${file.name}`;
+        }
+
+        function setupDropArea(dropAreaId, inputElementId, fileNameElementId) {
             const dropArea = document.getElementById(dropAreaId);
             const inputElement = document.getElementById(inputElementId);
+            const fileNameElement = document.getElementById(fileNameElementId);
 
             dropArea.addEventListener('dragenter', highlight, false);
             dropArea.addEventListener('dragover', highlight, false);
@@ -57,19 +67,42 @@
             dropArea.addEventListener('drop', (e) => {
                 preventDefaults(e);
                 unhighlight(e);
-                handleDrop(e, inputElement);
+                handleDrop(e, inputElement, fileNameElement);
             }, false);
 
             dropArea.addEventListener('click', () => inputElement.click());
+
+            inputElement.addEventListener('change', (e) => {
+                const files = e.target.files;
+                displayFileName(files[0], fileNameElement); // Display file name on selection
+                validateForm(); // Validate form on file selection
+            });
 
             ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
                 dropArea.addEventListener(eventName, preventDefaults, false);
             });
         }
 
-        setupDropArea('drop-area-player1', 'player1');
-        setupDropArea('drop-area-player2', 'player2');
+        function validateForm() {
+            const player1File = document.getElementById('win').files.length > 0;
+            const player2File = document.getElementById('loss').files.length > 0;
+            const analyzeButton = document.getElementById('analyze-button');
+            const errorMessage = document.getElementById('error-message');
+
+            if (player1File && player2File) {
+                analyzeButton.disabled = false;
+                analyzeButton.style.opacity = 1;
+                errorMessage.textContent = ''; // Clear error message
+            } else {
+                analyzeButton.disabled = true;
+                analyzeButton.style.opacity = 0.5;
+                errorMessage.textContent = 'Please upload both win and loss files.'; // Show error message
+            }
+        }
+
+        // Setup drop areas for both the win and loss PGN files
+        setupDropArea('drop-area-win', 'win', 'file-name-win');
+        setupDropArea('drop-area-loss', 'loss', 'file-name-loss');
     </script>
 </body>
-
 </html>

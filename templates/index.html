@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess Game Analyzer</title>
+    <link rel="stylesheet" type="text/css" href="/static/styles.css">
+</head>
+
+<body>
+    <div>
+        <h1>Chess Game Analyzer</h1>
+
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <div class="drop-area" id="drop-area-player1">
+                <p>Drag & Drop Player 1's PGN file here, or click to select</p>
+                <input type="file" id="player1" name="player1" accept=".pgn" style="display: none;" required>
+            </div>
+
+            <div class="drop-area" id="drop-area-player2">
+                <p>Drag & Drop Player 2's PGN file here, or click to select</p>
+                <input type="file" id="player2" name="player2" accept=".pgn" style="display: none;" required>
+            </div>
+
+            <input type="submit" value="Analyze">
+        </form>
+    </div>
+
+    <script>
+        function preventDefaults(e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+
+        function highlight(e) {
+            e.target.classList.add('highlight');
+        }
+
+        function unhighlight(e) {
+            e.target.classList.remove('highlight');
+        }
+
+        function handleDrop(e, inputElement) {
+            const dt = e.dataTransfer;
+            const files = dt.files;
+            inputElement.files = files; // Assign dropped files to input element
+        }
+
+        function setupDropArea(dropAreaId, inputElementId) {
+            const dropArea = document.getElementById(dropAreaId);
+            const inputElement = document.getElementById(inputElementId);
+
+            dropArea.addEventListener('dragenter', highlight, false);
+            dropArea.addEventListener('dragover', highlight, false);
+            dropArea.addEventListener('dragleave', unhighlight, false);
+            dropArea.addEventListener('drop', (e) => {
+                preventDefaults(e);
+                unhighlight(e);
+                handleDrop(e, inputElement);
+            }, false);
+
+            dropArea.addEventListener('click', () => inputElement.click());
+
+            ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+                dropArea.addEventListener(eventName, preventDefaults, false);
+            });
+        }
+
+        setupDropArea('drop-area-player1', 'player1');
+        setupDropArea('drop-area-player2', 'player2');
+    </script>
+</body>
+
+</html>

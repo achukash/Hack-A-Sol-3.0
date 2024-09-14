@@ -2,7 +2,6 @@ absl-py==2.1.0
 asttokens==2.4.1
 astunparse==1.6.3
 blinker==1.8.2
-certifi==2024.8.30
 charset-normalizer==3.3.2
 chess==1.10.0
 click==8.1.7
@@ -14,7 +13,6 @@ executing==2.1.0
 Flask==3.0.3
 flatbuffers==24.3.25
 gast==0.6.0
-google-pasta==0.2.0
 grpcio==1.66.1
 idna==3.9
 itsdangerous==2.2.0
@@ -45,10 +43,8 @@ requests==2.32.3
 rich==13.8.1
 termcolor==2.4.0
 threadpoolctl==3.5.0
-tornado==6.4.1
 traitlets==5.14.3
 typing_extensions==4.12.2
 urllib3==2.2.3
-wcwidth==0.2.13
 Werkzeug==3.0.4
 wrapt==1.16.0

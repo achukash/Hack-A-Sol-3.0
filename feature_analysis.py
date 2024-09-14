@@ -3,7 +3,7 @@ import chess.engine
 import chess
 
 
-engine = chess.engine.SimpleEngine.popen_uci(r'D:\ARVIND\Chess\stockfish\stockfish-windows-x86-64-avx2.exe')
+engine = chess.engine.SimpleEngine.popen_uci(r'path')
 
 print("Chess engine initialized!")
 
@@ -278,4 +278,6 @@ def print_player_analysis(win_pgn_path, loss_pgn_path) :
         loss_game = chess.pgn.read_game(loss_pgn)
         features_loss = extract_features_for_player(loss_game, loser_color)
         print("Features for the Loss Game:", features_loss)
+
     engine.close()
+    return (features_win, features_loss)

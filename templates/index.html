@@ -33,80 +33,157 @@
     </div>
 
     <!-- Chess Game Analysis Section -->
+     {% if win_data %}
     <div class="container">
         <h1>Chess Game Analysis</h1>
         <div class="grid-container">
             <div class="grid-item">
                 <i class="fas fa-chess"></i>
-                <span>Total Moves: {{ chess_data['total_moves'] }}</span>
+                <span>Total Moves: {{ win_data['total_moves'] }}</span>
             </div>
             <div class="grid-item">
                 <i class="fas fa-chess-pawn"></i>
-                <span>Opening Moves: {{ chess_data['opening_moves'] }}</span>
+                <span>Opening Moves: {{ win_data['opening_moves'] }}</span>
             </div>
             <div class="grid-item">
                 <i class="fas fa-chess-knight"></i>
-                <span>Midgame Moves: {{ chess_data['midgame_moves'] }}</span>
+                <span>Midgame Moves: {{ win_data['midgame_moves'] }}</span>
             </div>
             <div class="grid-item">
                 <i class="fas fa-chess-queen"></i>
-                <span>Endgame Moves: {{ chess_data['endgame_moves'] }}</span>
+                <span>Endgame Moves: {{ win_data['endgame_moves'] }}</span>
             </div>
             <div class="grid-item">
                 <i class="fas fa-bullseye"></i>
-                <span>Tactical Opportunities: {{ chess_data['tactical_opportunities'] }}</span>
+                <span>Tactical Opportunities: {{ win_data['tactical_opportunities'] }}</span>
             </div>
             <div class="grid-item">
                 <i class="fas fa-chess-king"></i>
-                <span>Checkmate Threats: {{ chess_data['checkmate_threats'] }}</span>
+                <span>Checkmate Threats: {{ win_data['checkmate_threats'] }}</span>
             </div>
             <div class="grid-item">
                 <i class="fas fa-users"></i>
-                <span>Piece Coordination: {{ chess_data['piece_coordination'] }}</span>
+                <span>Piece Coordination: {{ win_data['piece_coordination'] }}</span>
             </div>
             <div class="grid-item">
                 <i class="fas fa-chess-board"></i>
-                <span>Weak Squares: {{ chess_data['weak_squares'] }}</span>
+                <span>Weak Squares: {{ win_data['weak_squares'] }}</span>
             </div>
             <div class="grid-item">
                 <i class="fas fa-chess-pawn"></i>
-                <span>Passed Pawns: {{ chess_data['passed_pawns'] }}</span>
+                <span>Passed Pawns: {{ win_data['passed_pawns'] }}</span>
             </div>
             <div class="grid-item">
                 <i class="fas fa-shield-alt"></i>
-                <span>King Safety: {{ chess_data['king_safety'] }}</span>
+                <span>King Safety: {{ win_data['king_safety'] }}</span>
             </div>
             <div class="grid-item">
                 <i class="fas fa-balance-scale"></i>
-                <span>Material Balance: {{ chess_data['material_balance'] }}</span>
+                <span>Material Balance: {{ win_data['material_balance'] }}</span>
             </div>
             <div class="grid-item">
                 <i class="fas fa-cogs"></i>
-                <span>Development: {{ chess_data['development'] }}</span>
+                <span>Development: {{ win_data['development'] }}</span>
             </div>
             <div class="grid-item">
                 <i class="fas fa-map"></i>
-                <span>Space Control: {{ chess_data['space_control'] }}</span>
+                <span>Space Control: {{ win_data['space_control'] }}</span>
             </div>
             <div class="grid-item">
                 <i class="fas fa-chess-pawn"></i>
-                <span>Pawn Weaknesses: {{ chess_data['pawn_weaknesses'] }}</span>
+                <span>Pawn Weaknesses: {{ win_data['pawn_weaknesses'] }}</span>
             </div>
             <div class="grid-item">
                 <i class="fas fa-chess-bishop"></i>
-                <span>Captures: {{ chess_data['captures'] }}</span>
+                <span>Captures: {{ win_data['captures'] }}</span>
             </div>
             <div class="grid-item">
                 <i class="fas fa-chess-rook"></i>
-                <span>Checks: {{ chess_data['checks'] }}</span>
+                <span>Checks: {{ win_data['checks'] }}</span>
             </div>
             <div class="grid-item">
                 <i class="fas fa-crown"></i>
-                <span>Castles: {{ chess_data['castles'] }}</span>
+                <span>Castles: {{ win_data['castles'] }}</span>
             </div>
         </div>
     </div>
-    
+    {% endif %}
+
+    {% if loss_data %}
+    <div class="container">
+        <h1>Chess Game Analysis</h1>
+        <div class="grid-container">
+            <div class="grid-item">
+                <i class="fas fa-chess"></i>
+                <span>Total Moves: {{ loss_data['total_moves'] }}</span>
+            </div>
+            <div class="grid-item">
+                <i class="fas fa-chess-pawn"></i>
+                <span>Opening Moves: {{ loss_data['opening_moves'] }}</span>
+            </div>
+            <div class="grid-item">
+                <i class="fas fa-chess-knight"></i>
+                <span>Midgame Moves: {{ loss_data['midgame_moves'] }}</span>
+            </div>
+            <div class="grid-item">
+                <i class="fas fa-chess-queen"></i>
+                <span>Endgame Moves: {{ loss_data['endgame_moves'] }}</span>
+            </div>
+            <div class="grid-item">
+                <i class="fas fa-bullseye"></i>
+                <span>Tactical Opportunities: {{ loss_data['tactical_opportunities'] }}</span>
+            </div>
+            <div class="grid-item">
+                <i class="fas fa-chess-king"></i>
+                <span>Checkmate Threats: {{ loss_data['checkmate_threats'] }}</span>
+            </div>
+            <div class="grid-item">
+                <i class="fas fa-users"></i>
+                <span>Piece Coordination: {{ loss_data['piece_coordination'] }}</span>
+            </div>
+            <div class="grid-item">
+                <i class="fas fa-chess-board"></i>
+                <span>Weak Squares: {{ loss_data['weak_squares'] }}</span>
+            </div>
+            <div class="grid-item">
+                <i class="fas fa-chess-pawn"></i>
+                <span>Passed Pawns: {{ loss_data['passed_pawns'] }}</span>
+            </div>
+            <div class="grid-item">
+                <i class="fas fa-shield-alt"></i>
+                <span>King Safety: {{ loss_data['king_safety'] }}</span>
+            </div>
+            <div class="grid-item">
+                <i class="fas fa-balance-scale"></i>
+                <span>Material Balance: {{ loss_data['material_balance'] }}</span>
+            </div>
+            <div class="grid-item">
+                <i class="fas fa-cogs"></i>
+                <span>Development: {{ loss_data['development'] }}</span>
+            </div>
+            <div class="grid-item">
+                <i class="fas fa-map"></i>
+                <span>Space Control: {{ loss_data['space_control'] }}</span>
+            </div>
+            <div class="grid-item">
+                <i class="fas fa-chess-pawn"></i>
+                <span>Pawn Weaknesses: {{ loss_data['pawn_weaknesses'] }}</span>
+            </div>
+            <div class="grid-item">
+                <i class="fas fa-chess-bishop"></i>
+                <span>Captures: {{ loss_data['captures'] }}</span>
+            </div>
+            <div class="grid-item">
+                <i class="fas fa-chess-rook"></i>
+                <span>Checks: {{ loss_data['checks'] }}</span>
+            </div>
+            <div class="grid-item">
+                <i class="fas fa-crown"></i>
+                <span>Castles: {{ loss_data['castles'] }}</span>
+            </div>
+        </div>
+    </div>
+    {% endif %}
 
     <script>
         // JS to handle drag & drop functionality

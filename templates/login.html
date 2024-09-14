@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up / Login</title>
+  <link rel="stylesheet" href="/static/login.css">
+</head>
+<body>
+  <div id="auth-container">
+    <div id="auth-form">
+      <h2 id="auth-title">Sign Up</h2>
+      <form id="auth-form-element">
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button type="submit" id="submit-button">Sign Up</button>
+        <p id="auth-toggle">Already have an account?   <a href="#" id="toggle-auth">Log In</a></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Firebase App SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js"></script>
+  <script src="/static/login.js"></script>
+</body>
+</html>

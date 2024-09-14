@@ -34,6 +34,35 @@
     </div>
     {% endif %}
     <!-- Chess Game Analysis Section -->
+     {% if player_data %}
+     <div class="container" id = "playerinfo">
+        <div class="grid-container">
+            <div class="grid-item">
+                <span>Player Name: {{ player_data["username"] }}</span>
+            </div>
+            <div class="grid-item">
+                <span>Rating: {{ player_data["bullet_rating"] }}</span>
+            </div>
+            <div class="grid-item">
+                <span>Title: {{ player_title }}</span>
+            </div>
+        </div>  
+     </div>
+     <div class="container" id = "playerinfo">
+        <div class="grid-container">
+            <div class="grid-item">
+                <span>Opponent Name: {{ player_name }}</span>
+            </div>
+            <div class="grid-item">
+                <span>Rating: {{ player_rating }}</span>
+            </div>
+            <div class="grid-item">
+                <span>Title: {{ player_title }}</span>
+            </div>
+        </div>  
+       
+     </div>
+     {% endif %}
      {% if win_data %}
     <div class="container" id = "win_cont">
         <h1>Win Game Analysis</h1>

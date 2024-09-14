@@ -14,5 +14,4 @@ def get_user_stats(username):
         for ratings in all_stats["perfs"]:
             if ratings in ["bullet", "blitz", "rapid", "classical"]:
                 wanted_stats[f"{ratings}_rating"] = all_stats["perfs"][ratings]["rating"]
-                
-        print(wanted_stats)
+        return wanted_stats

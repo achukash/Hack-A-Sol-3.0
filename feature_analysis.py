@@ -2,8 +2,9 @@ import chess.pgn
 import chess.engine
 import chess
 
+import stockfish
 
-engine = chess.engine.SimpleEngine.popen_uci(r'path')
+engine = chess.engine.SimpleEngine.popen_uci(stockfish.stockfish_path) # Add the stockfish path in stockfish.py
 
 print("Chess engine initialized!")
 

@@ -2,6 +2,7 @@ from flask import Flask, request, render_template, redirect, url_for
 import os
 import feature_analysis  # Assuming feature_analysis has your analysis functions
 from user_stats import get_user_stats
+import KMeans
 
 app = Flask(__name__)
 
@@ -38,10 +39,19 @@ def payment():
 # Route to handle file upload
 @app.route('/upload')
 def upload_files():
+    
+    
+    # Analyze the files and get chess data  
         # Analyze the files and get chess data  
     win_data, loss_data, username, opponent_name = feature_analysis.print_player_analysis(win_path, loss_path)
+
+
+# Predict the outcome
+    prediction = KMeans.predict_game_outcome(win_path, loss_path)
     # Redirect to the analysis page and pass chess_data to it
-    return render_template('index.html', win_data = win_data, loss_data = loss_data, player_data=get_user_stats(username), opponent_data=get_user_stats(opponent_name),username=username, opponent_name=opponent_name, paid = True)
+    return render_template('index.html', win_data = win_data, loss_data = loss_data, player_data=get_user_stats(username), 
+                           opponent_data=get_user_stats(opponent_name),username=username, opponent_name=opponent_name, paid = True,
+                          prediction=prediction)
 
 if __name__ == "__main__":
     app.run(debug=True)

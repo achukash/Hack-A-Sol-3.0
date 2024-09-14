@@ -44,25 +44,27 @@
                 <span>Rating: {{ player_data["bullet_rating"] }}</span>
             </div>
             <div class="grid-item">
-                <span>Title: {{ player_title }}</span>
+                <span>Title: {{ player_data[title] }}</span>
             </div>
         </div>  
      </div>
-     <div class="container" id = "playerinfo">
-        <div class="grid-container">
-            <div class="grid-item">
-                <span>Opponent Name: {{ player_name }}</span>
-            </div>
-            <div class="grid-item">
-                <span>Rating: {{ player_rating }}</span>
-            </div>
-            <div class="grid-item">
-                <span>Title: {{ player_title }}</span>
-            </div>
-        </div>  
-       
-     </div>
+     
      {% endif %}
+     {% if prediction %}
+        <div class="container" id = "prediction">
+            <h1>Game Prediction</h1>
+            <div>
+                
+                    <h3>Win Probability as White: {{ prediction }}</h3>
+                
+                    <br>
+
+                    <h3>Win Probability as Black: {{ prediction }}</h3>
+                
+            </div>
+            </div>
+
+        {% endif %}
      {% if win_data %}
     <div class="container" id = "win_cont">
         <h1>Win Game Analysis</h1>

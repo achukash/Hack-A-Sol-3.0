@@ -15,5 +15,3 @@ build/
 *.egg-info/
 
 uploads/
-
-stockfish.py

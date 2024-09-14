@@ -10,6 +10,7 @@
 </head>
 
 <body>
+    {% if not win_data %}
     <div class="container" id = "input_cont">
         <h1>Chess Game Analyzer</h1>
 
@@ -31,10 +32,11 @@
             <div class="error-message" id="error-message"></div>
         </form>
     </div>
+    {% endif %}
     <!-- Chess Game Analysis Section -->
      {% if win_data %}
     <div class="container" id = "win_cont">
-        <h1>Chess Game Analysis</h1>
+        <h1>Win Game Analysis</h1>
         <div class="grid-container">
             <div class="grid-item">
                 <i class="fas fa-chess"></i>
@@ -110,7 +112,7 @@
     <br>
     {% if loss_data %}
     <div class="container" id = "loss_cont">
-        <h1>Chess Game Analysis</h1>
+        <h1>Loss Game Analysis</h1>
         <div class="grid-container">
             <div class="grid-item">
                 <i class="fas fa-chess"></i>
@@ -182,6 +184,7 @@
             </div>
         </div>
     </div>
+    <a href="/"><input type="reset" value="Reset" id="resetbutton"></a>
     {% endif %}
     <script src = "/static/scripts.js"></script>
 </body>

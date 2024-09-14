@@ -6,8 +6,10 @@ body {
   margin: 0;
   padding: 0;
   display: flex;
-  flex-direction: column; /* Stack containers vertically */
-  align-items: center; /* Center the containers horizontally */
+  flex-direction: column;
+  /* Stack containers vertically */
+  align-items: center;
+  /* Center the containers horizontally */
   min-height: 100vh;
 }
 
@@ -17,10 +19,13 @@ body {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-  width: 85%; /* Increased width to 85% of the screen */
-  max-width: 1200px; /* Max width for larger screens */
+  width: 85%;
+  /* Increased width to 85% of the screen */
+  max-width: 1200px;
+  /* Max width for larger screens */
   text-align: center;
-  margin: 20px 0; /* Adds space between containers */
+  margin: 20px 0;
+  /* Adds space between containers */
   /* Removed overflow and max-height to prevent scrolling within the containers */
 }
 
@@ -33,106 +38,133 @@ h1 {
 
 /* Rest of the existing styles for other sections remain unchanged */
 
-  
-  /* Section for the file upload area */
-  .upload-section, .analysis-section {
-    margin: 20px 0;
-    text-align: center;
-  }
-  
-  /* Drop Area for file input */
-  .drop-area {
-    border: 2px dashed #444;
-    padding: 20px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    background-color: #2c2c2c;
-    position: relative;
-  }
-  
-  .drop-area:hover {
-    border-color: #4caf50;
-  }
-  
-  .drop-area p {
-    margin: 0;
-    color: #bbbbbb;
-  }
-  
-  /* File name display styling */
-  .file-name {
-    margin-top: 10px;
-    color: #4caf50;
-    font-size: 0.9em;
-  }
-  
-  /* Submit Button Styling */
-  input[type="submit"] {
-    background-color: #4caf50;
-    color: #ffffff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
-  
-  input[type="submit"]:hover {
-    background-color: #45a049;
-  }
-  
-  input[type="submit"]:enabled {
-    opacity: 1;
-    cursor: pointer;
-  }
-  
-  /* Error message styling */
-  .error-message {
-    color: #ff4d4d;
-    font-size: 0.9em;
-    margin-top: 10px;
-  }
-  
-  /* Grid for Chess Game Analysis section */
-  .grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 15px;
-    padding: 10px;
-    margin-top: 20px; /* Added margin for spacing below the form */
-  }
-  
-  /* Individual grid item styling */
-  .grid-item {
-    background-color: #2c2c2c;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-    transition: background-color 0.3s ease;
-  }
-  
-  .grid-item:hover {
-    background-color: #3a3a3a;
-  }
-  
-  /* Icon in grid items */
-  .grid-item i {
-    font-size: 2em;
-    margin-bottom: 10px;
-    color: #4caf50;
-  }
-  
-  /* Text inside grid items */
-  .grid-item span {
-    display: block;
-    font-size: 1.1em;
-    color: #bbbbbb;
-  }
-  
-  .grid-item:hover span {
-    color: #ffffff;
-  }
-  
+
+/* Section for the file upload area */
+.upload-section,
+.analysis-section {
+  margin: 20px 0;
+  text-align: center;
+}
+
+/* Drop Area for file input */
+.drop-area {
+  border: 2px dashed #444;
+  padding: 20px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #2c2c2c;
+  position: relative;
+}
+
+.drop-area:hover {
+  border-color: #4caf50;
+}
+
+.drop-area p {
+  margin: 0;
+  color: #bbbbbb;
+}
+
+/* File name display styling */
+.file-name {
+  margin-top: 10px;
+  color: #4caf50;
+  font-size: 0.9em;
+}
+
+/* Submit Button Styling */
+input[type="submit"] {
+  background-color: #4caf50;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+input[type="submit"]:enabled {
+  opacity: 1;
+  cursor: pointer;
+}
+
+/* Error message styling */
+.error-message {
+  color: #ff4d4d;
+  font-size: 0.9em;
+  margin-top: 10px;
+}
+
+/* Grid for Chess Game Analysis section */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 15px;
+  padding: 10px;
+  margin-top: 20px;
+  /* Added margin for spacing below the form */
+}
+
+/* Individual grid item styling */
+.grid-item {
+  background-color: #2c2c2c;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  transition: background-color 0.3s ease;
+}
+
+.grid-item:hover {
+  background-color: #3a3a3a;
+}
+
+/* Icon in grid items */
+.grid-item i {
+  font-size: 2em;
+  margin-bottom: 10px;
+  color: #4caf50;
+}
+
+/* Text inside grid items */
+.grid-item span {
+  display: block;
+  font-size: 1.1em;
+  color: #bbbbbb;
+}
+
+.grid-item:hover span {
+  color: #ffffff;
+}
+
+#playerinfo {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.player-container {
+  justify-content: left;
+  align-items: left;
+}
+
+input[type="reset"] {
+  background-color: #4caf50;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  opacity: 0.5;
+}
+
+input[type="reset"]:hover {
+  background-color: #45a049;
+}

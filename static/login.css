@@ -1,0 +1,63 @@
+body {
+    background-color: #121212;
+    color: #e0e0e0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  #auth-container {
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 360px;
+    box-sizing: border-box;
+  }
+  
+  #auth-form h2 {
+    margin: 0 0 20px 0;
+    text-align: center;
+  }
+  
+  input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #333;
+    border-radius: 4px;
+    background-color: #333;
+    color: #e0e0e0;
+    box-sizing: border-box;
+  }
+  
+  button {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    box-sizing: border-box;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  #auth-toggle {
+    color: #007bff;
+    cursor: pointer;
+    text-align: center;
+    display: block;
+    margin-top: 10px;
+  }
+  
+  
+  

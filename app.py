@@ -38,9 +38,7 @@ def payment():
 # Route to handle file upload
 @app.route('/upload')
 def upload_files():
-    
-
-    # Analyze the files and get chess data  
+        # Analyze the files and get chess data  
     win_data, loss_data, username, opponent_name = feature_analysis.print_player_analysis(win_path, loss_path)
     # Redirect to the analysis page and pass chess_data to it
     return render_template('index.html', win_data = win_data, loss_data = loss_data, player_data=get_user_stats(username), opponent_data=get_user_stats(opponent_name),username=username, opponent_name=opponent_name, paid = True)

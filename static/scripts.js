@@ -1,3 +1,4 @@
+// JS to handle drag & drop functionality
 function preventDefaults(e) {
     e.preventDefault();
     e.stopPropagation();

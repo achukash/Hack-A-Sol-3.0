@@ -264,6 +264,7 @@ def print_player_analysis(win_pgn_path, loss_pgn_path) :
 
     # Extract features for the winning player in the win game
     winner_name, winner_color, winner_elo = extract_player_info(win_pgn_path, 'win')
+    opponent_name = extract_player_info(win_pgn_path, 'loss')
     print(f"Winning Player: {winner_name}, Color: {winner_color}, ELO: {winner_elo}")
 
     with open(win_pgn_path) as win_pgn:
@@ -281,4 +282,4 @@ def print_player_analysis(win_pgn_path, loss_pgn_path) :
         print("Features for the Loss Game:", features_loss)
 
     engine.close()
-    return (features_win, features_loss)
+    return (features_win, features_loss, winner_name, opponent_name)

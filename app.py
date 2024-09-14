@@ -1,6 +1,7 @@
 from flask import Flask, request, render_template, redirect, url_for
 import os
 import feature_analysis  # Assuming feature_analysis has your analysis functions
+from user_stats import get_user_stats
 
 app = Flask(__name__)
 
@@ -35,10 +36,10 @@ def upload_files():
         loss_file.save(loss_path)
 
     # Analyze the files and get chess data  
-    win_data, loss_data = feature_analysis.print_player_analysis(win_path, loss_path)
+    win_data, loss_data, username, opponent_name = feature_analysis.print_player_analysis(win_path, loss_path)
 
     # Redirect to the analysis page and pass chess_data to it
-    return render_template('index.html', win_data = win_data, loss_data = loss_data)
+    return render_template('index.html', win_data = win_data, loss_data = loss_data, user_stats=get_user_stats(username), opponent_data=get_user_stats(opponent_name))
 
 if __name__ == "__main__":
     app.run(debug=True)

@@ -1,32 +1,38 @@
 /* General Body and Layout Styling */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #121212;
-    color: #e0e0e0;
-    margin: 0;
-    padding: 0;
-    justify-content: center;
-    align-items: flex-start; /* Align items to the top */
-    min-height: 100vh;
-  }
-  
-  /* Container for the entire app */
-  .container {
-    background-color: #1e1e1e;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-    width: 90%;
-    max-width: 800px;
-    text-align: center;
-  }
-  
-  /* Headings */
-  h1 {
-    color: #ffffff;
-    font-size: 2.2em;
-    margin-bottom: 20px;
-  }
+  font-family: Arial, sans-serif;
+  background-color: #121212;
+  color: #e0e0e0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column; /* Stack containers vertically */
+  align-items: center; /* Center the containers horizontally */
+  min-height: 100vh;
+}
+
+/* Container for the entire app */
+.container {
+  background-color: #1e1e1e;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  width: 85%; /* Increased width to 85% of the screen */
+  max-width: 1200px; /* Max width for larger screens */
+  text-align: center;
+  margin: 20px 0; /* Adds space between containers */
+  /* Removed overflow and max-height to prevent scrolling within the containers */
+}
+
+/* Headings */
+h1 {
+  color: #ffffff;
+  font-size: 2.2em;
+  margin-bottom: 20px;
+}
+
+/* Rest of the existing styles for other sections remain unchanged */
+
   
   /* Section for the file upload area */
   .upload-section, .analysis-section {

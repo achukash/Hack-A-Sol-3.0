@@ -4,11 +4,7 @@ import chess
 
 import stockfish
 
-<<<<<<< HEAD
 engine = chess.engine.SimpleEngine.popen_uci(stockfish.stockfish_path) # Add the stockfish path in stockfish.py
-=======
-engine = chess.engine.SimpleEngine.popen_uci(r"E:\Hackathons\stockfish\stockfish-windows-x86-64-avx2.exe")
->>>>>>> 11bb83465e163253dfea759b46084d4c52a27bc1
 
 print("Chess engine initialized!")
 

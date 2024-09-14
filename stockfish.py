@@ -1,1 +1,1 @@
-stockfish_path = r"stockfish\stockfish-ubuntu-x86-64-avx2
+stockfish_path = r"stockfish\stockfish-ubuntu-x86-64-avx2"

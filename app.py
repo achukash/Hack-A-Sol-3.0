@@ -1,5 +1,6 @@
 from flask import Flask, request, render_template, redirect, url_for
 import os
+import feature_analysis
 
 app = Flask(__name__)
 
@@ -33,6 +34,7 @@ def upload_files():
         loss_path = os.path.join(UPLOAD_FOLDER, loss_file.filename)
         loss_file.save(loss_path)
 
+    feature_analysis.print_player_analysis(win_path, loss_file)
     return f"Files uploaded successfully: {win_file.filename}, {loss_file.filename}"
 
 if __name__ == "__main__":

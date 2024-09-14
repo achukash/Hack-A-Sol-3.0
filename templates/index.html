@@ -5,13 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chess Game Analyzer</title>
-    <link rel="stylesheet" type="text/css" href="/static/styles.css">
+    <link rel="stylesheet" href="/static/analysis_style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 
 <body>
-    <div>
+    <div class="container">
         <h1>Chess Game Analyzer</h1>
 
+        <!-- Upload Section -->
         <form id="upload-form" action="/upload" method="post" enctype="multipart/form-data">
             <div class="drop-area" id="drop-area-win">
                 <p>Drag & Drop win PGN file here, or click to select</p>
@@ -30,7 +32,40 @@
         </form>
     </div>
 
+    <!-- Chess Game Analysis Section -->
+    <div class="container">
+        <h1>Chess Game Analysis</h1>
+        <div class="grid-container">
+            <div class="grid-item">
+                <i class="fas fa-chess"></i>
+                <span>Total Moves: {{ chess_data['total_moves'] }}</span>
+            </div>
+            <div class="grid-item">
+                <i class="fas fa-chess-pawn"></i>
+                <span>Opening Moves: {{ chess_data['opening_moves'] }}</span>
+            </div>
+            <div class="grid-item">
+                <i class="fas fa-chess-knight"></i>
+                <span>Midgame Moves: {{ chess_data['midgame_moves'] }}</span>
+            </div>
+            <div class="grid-item">
+                <i class="fas fa-chess-queen"></i>
+                <span>Endgame Moves: {{ chess_data['endgame_moves'] }}</span>
+            </div>
+            <div class="grid-item">
+                <i class="fas fa-bullseye"></i>
+                <span>Tactical Opportunities: {{ chess_data['tactical_opportunities'] }}</span>
+            </div>
+            <div class="grid-item">
+                <i class="fas fa-chess-king"></i>
+                <span>Checkmate Threats: {{ chess_data['checkmate_threats'] }}</span>
+            </div>
+            <!-- Continue with the rest of the data and icons -->
+        </div>
+    </div>
+
     <script>
+        // JS to handle drag & drop functionality
         function preventDefaults(e) {
             e.preventDefault();
             e.stopPropagation();
@@ -105,4 +140,5 @@
         setupDropArea('drop-area-loss', 'loss', 'file-name-loss');
     </script>
 </body>
+
 </html>

@@ -3,7 +3,7 @@ import chess.engine
 import chess
 
 
-engine = chess.engine.SimpleEngine.popen_uci(r'path')
+engine = chess.engine.SimpleEngine.popen_uci(r'D:\ARVIND\Chess\stockfish\stockfish-windows-x86-64-avx2.exe')
 
 print("Chess engine initialized!")
 

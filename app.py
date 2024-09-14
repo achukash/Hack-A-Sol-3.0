@@ -34,8 +34,9 @@ def upload_files():
         loss_path = os.path.join(UPLOAD_FOLDER, loss_file.filename)
         loss_file.save(loss_path)
 
-    feature_analysis.print_player_analysis(win_path, loss_file)
-    return f"Files uploaded successfully: {win_file.filename}, {loss_file.filename}"
+    chess_data = feature_analysis.print_player_analysis(win_path, loss_path)
+    # Render the template and pass chess_data to the template
+    return render_template('index.html', chess_data=chess_data)
 
 if __name__ == "__main__":
     app.run(debug=True)

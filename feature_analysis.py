@@ -279,4 +279,3 @@ def print_player_analysis(win_pgn_path, loss_pgn_path) :
         features_loss = extract_features_for_player(loss_game, loser_color)
         print("Features for the Loss Game:", features_loss)
     engine.close()
-print_player_analysis(r"D:\Hackathons\Hack-a-sol-24\WinLossPGN\15win.pgn", r"D:\Hackathons\Hack-a-sol-24\WinLossPGN\15loss.pgn")

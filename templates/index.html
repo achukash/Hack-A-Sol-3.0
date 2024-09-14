@@ -15,7 +15,7 @@
         <h1>Chess Game Analyzer</h1>
 
         <!-- Upload Section -->
-        <form id="upload-form" action="/upload" method="post" enctype="multipart/form-data">
+        <form id="upload-form" action="/payment" method="post" enctype="multipart/form-data">
             <div class="drop-area" id="drop-area-win">
                 <p>Drag & Drop win PGN file here, or click to select</p>
                 <input type="file" id="win" name="win" accept=".pgn" style="display: none;" required>
@@ -28,7 +28,7 @@
                 <span class="file-name" id="file-name-loss"></span>
             </div>
 
-            <input type="submit" value="Analyze" id="analyze-button" disabled>
+            <input type="submit" value="Proceed" id="proceed" disabled>
             <div class="error-message" id="error-message"></div>
         </form>
     </div>
@@ -43,8 +43,15 @@
             <div class="grid-item">
                 <span>Rating: {{ player_data["bullet_rating"] }}</span>
             </div>
+        </div>  
+     </div>
+     
+     {% endif %}
+     {% if not player_data and paid %}
+     <div class="container" id = "playerinfo">
+        <div class="grid-container">
             <div class="grid-item">
-                <span>Title: {{ player_data[title] }}</span>
+                <span>Player Name: {{username}}</span>
             </div>
         </div>  
      </div>

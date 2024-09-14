@@ -17,15 +17,15 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 def index():
     return render_template('index.html')
 
-# Route to handle file upload
-@app.route('/upload', methods=['POST'])
-def upload_files():
+
+@app.route('/payment' ,methods=['POST'])
+def payment():
     if 'win' not in request.files or 'loss' not in request.files:
         return "Files not uploaded"
-
+    global win_path, loss_path
     win_file = request.files['win']
     loss_file = request.files['loss']
-
+    print(win_file)
     # Save the files if they are PGN files
     if win_file and win_file.filename.endswith('.pgn'):
         win_path = os.path.join(UPLOAD_FOLDER, win_file.filename)
@@ -34,12 +34,16 @@ def upload_files():
     if loss_file and loss_file.filename.endswith('.pgn'):
         loss_path = os.path.join(UPLOAD_FOLDER, loss_file.filename)
         loss_file.save(loss_path)
+    return render_template('payment.html')
+# Route to handle file upload
+@app.route('/upload')
+def upload_files():
+    
 
     # Analyze the files and get chess data  
     win_data, loss_data, username, opponent_name = feature_analysis.print_player_analysis(win_path, loss_path)
-    print("here", get_user_stats(username))
     # Redirect to the analysis page and pass chess_data to it
-    return render_template('index.html', win_data = win_data, loss_data = loss_data, player_data=get_user_stats(username), opponent_data=get_user_stats(opponent_name))
+    return render_template('index.html', win_data = win_data, loss_data = loss_data, player_data=get_user_stats(username), opponent_data=get_user_stats(opponent_name),username=username, opponent_name=opponent_name, paid = True)
 
 if __name__ == "__main__":
     app.run(debug=True)

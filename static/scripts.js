@@ -54,7 +54,7 @@ function setupDropArea(dropAreaId, inputElementId, fileNameElementId) {
 function validateForm() {
     const player1File = document.getElementById('win').files.length > 0;
     const player2File = document.getElementById('loss').files.length > 0;
-    const analyzeButton = document.getElementById('analyze-button');
+    const analyzeButton = document.getElementById('proceed');
     const errorMessage = document.getElementById('error-message');
 
     if (player1File && player2File) {

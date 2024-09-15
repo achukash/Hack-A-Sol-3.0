@@ -2,8 +2,9 @@ from flask import Flask, request, render_template, redirect, url_for
 import os
 import feature_analysis  # Assuming feature_analysis has your analysis functions
 from user_stats import get_user_stats
+import NEURALManual
 import KMeans
-
+import random
 app = Flask(__name__)
 
 # Folder to save uploaded files
@@ -47,7 +48,7 @@ def upload_files():
 
 
 # Predict the outcome
-    prediction = KMeans.predict_game_outcome(win_path, loss_path)
+    prediction = random.choice([NEURALManual, KMeans]).predict_game_outcome(win_path, loss_path)
     # Redirect to the analysis page and pass chess_data to it
     return render_template('index.html', win_data = win_data, loss_data = loss_data, player_data=get_user_stats(username), 
                            opponent_data=get_user_stats(opponent_name),username=username, opponent_name=opponent_name, paid = True,

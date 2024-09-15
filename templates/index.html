@@ -37,12 +37,11 @@
      {% if player_data %}
      <div class="container" id = "playerinfo">
         <div class="grid-container">
-            <div class="grid-item">
-                <span>Player Name: {{ player_data["username"] }}</span>
-            </div>
-            <div class="grid-item">
-                <span>Rating: {{ player_data["bullet_rating"] }}</span>
-            </div>
+            
+                <h3>Player Name: {{ player_data["username"] }}</h3>
+
+                <h3>Rating: {{ player_data["bullet_rating"] }}</h3>
+            
         </div>  
      </div>
      

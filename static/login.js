@@ -7,7 +7,15 @@ import {
 } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js";
 
 // Your web app's Firebase configuration
-const firebaseConfig = {};
+const firebaseConfig = {
+  apiKey: "AIzaSyCvf0qZzwKa27X7wXbTAIN8HgcR4-yhoG0",
+  authDomain: "hack-a-sol-399d1.firebaseapp.com",
+  projectId: "hack-a-sol-399d1",
+  storageBucket: "hack-a-sol-399d1.appspot.com",
+  messagingSenderId: "658095024603",
+  appId: "1:658095024603:web:c0d3354d5e17bfc7309ffe",
+  measurementId: "G-M5TRT2F9TF"
+};
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);

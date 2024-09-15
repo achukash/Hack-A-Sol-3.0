@@ -10,6 +10,12 @@
 </head>
 
 <body>
+    <header>
+        <div class="logo-container">
+            <img src="/static/logo.png" alt="Knight Vision Logo" class="logo">
+            <h2>Knight Vision</h2>
+        </div>
+    </header>
     {% if not win_data %}
     <div class="container" id = "input_cont">
         <h1>Chess Game Analyzer</h1>
@@ -58,7 +64,7 @@
      {% endif %}
      {% if prediction %}
         <div class="container" id = "prediction">
-            <h1>Game Prediction</h1>
+            <h1>Next Game Prediction</h1>
             <div>
                 
                     <h3>Win Probability as White: {{ prediction[0] }}</h3>

@@ -12,6 +12,31 @@ body {
   /* Center the containers horizontally */
   min-height: 100vh;
 }
+/* Header for Logo and Project Name */
+header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 160px; /* Adjust height as per your logo's size */
+  margin-right: 15px;
+  margin-top: 15px;
+}
+
+header h2 {
+  font-size: 2em;
+  color: #ffffff;
+  font-family: 'Arial', sans-serif;
+}
 
 /* Container for the entire app */
 .container {
